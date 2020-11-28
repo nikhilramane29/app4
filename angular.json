@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "app4"
+    }
+  },
+  "defaultProject": "app4",
+  "cli": {
+    "analytics": false
+  }
 }

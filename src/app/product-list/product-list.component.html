@@ -1,0 +1,33 @@
+<h2>Product List!!</h2>
+<button (click)="loadProducts()" style="margin-bottom: 2px;" class="btn btn-success">Load Products</button>
+<button style="margin-bottom: 2px;" class="btn btn-success float-right">Add</button>
+
+<h4 *ngIf="products.length ==0">There is no Product at the moment.Please add a one using add button</h4>
+
+<table *ngIf="products.length !==0" class="table table-striped table-bordered">
+<thead>
+<tr>
+    <th>No</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th style="width: 100px;">Price</th>
+    <th style="width: 150px;">Category</th>
+    <th style="width: 150px;">Brand</th>
+    <th style="width: 150px;">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let product of products,let index = index">
+    <td>{{index+1}}</td>
+    <td>{{product['title']}}</td>
+    <td>{{product['description']}}</td>
+    <td>{{product['price']}}</td>
+    <td>{{product['category']['title']}}</td>
+    <td>{{product['brand']['title']}}</td>
+    <td>
+        <button (click)="onEdit(product)" class="btn btn-warning btn-sm">Edit</button>
+        <button (click)="onDelete(product,index)"  style="margin-left: 5px;"  class="btn btn-danger btn-sm">Delete</button>
+    </td>
+</tr>
+</tbody>
+</table>
